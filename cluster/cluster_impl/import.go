@@ -20,7 +20,10 @@
 package cluster_impl
 
 import (
-	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/adaptivesvc"
+	_ "github.com/apache/dubbo-go-extensions/cluster/cluster/adaptivesvc"
+)
+
+import (
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/available"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/broadcast"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/failback"

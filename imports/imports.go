@@ -20,7 +20,12 @@
 package imports
 
 import (
-	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/adaptivesvc"
+	_ "github.com/apache/dubbo-go-extensions/cluster/cluster/adaptivesvc"
+	_ "github.com/apache/dubbo-go-extensions/cluster/loadbalance/p2c"
+	_ "github.com/apache/dubbo-go-extensions/filter/adaptivesvc"
+)
+
+import (
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/available"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/broadcast"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/cluster/failback"
@@ -33,7 +38,6 @@ import (
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/consistenthashing"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/iwrr"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/leastactive"
-	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/p2c"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/random"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/loadbalance/roundrobin"
 	_ "dubbo.apache.org/dubbo-go/v3/cluster/router/condition"
@@ -45,7 +49,6 @@ import (
 	_ "dubbo.apache.org/dubbo-go/v3/config_center/zookeeper"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/accesslog"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/active"
-	_ "dubbo.apache.org/dubbo-go/v3/filter/adaptivesvc"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/auth"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/echo"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/exec_limit"

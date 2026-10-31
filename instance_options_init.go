@@ -27,6 +27,8 @@ import (
 import (
 	getty "github.com/apache/dubbo-getty"
 
+	aslimiter "github.com/apache/dubbo-go-extensions/filter/adaptivesvc/limiter"
+
 	"github.com/creasty/defaults"
 
 	gostLogger "github.com/dubbogo/gost/log/logger"
@@ -42,7 +44,6 @@ import (
 	"dubbo.apache.org/dubbo-go/v3/common/constant"
 	"dubbo.apache.org/dubbo-go/v3/common/extension"
 	"dubbo.apache.org/dubbo-go/v3/config_center"
-	aslimiter "dubbo.apache.org/dubbo-go/v3/filter/adaptivesvc/limiter"
 	"dubbo.apache.org/dubbo-go/v3/global"
 	"dubbo.apache.org/dubbo-go/v3/internal"
 	dubboLogger "dubbo.apache.org/dubbo-go/v3/logger"
@@ -400,7 +401,7 @@ func (rc *InstanceOptions) initGlobalProvider(activateRuntime bool) error {
 		if activateRuntime {
 			gostLogger.Info("adaptive service verbose is enabled")
 			gostLogger.Debug("debug-level info could be shown")
-			aslimiter.Verbose = true
+			aslimiter.SetVerbose(true)
 		}
 	}
 	return nil

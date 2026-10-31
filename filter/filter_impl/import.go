@@ -20,9 +20,12 @@
 package filter_impl
 
 import (
+	_ "github.com/apache/dubbo-go-extensions/filter/adaptivesvc"
+)
+
+import (
 	_ "dubbo.apache.org/dubbo-go/v3/filter/accesslog"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/active"
-	_ "dubbo.apache.org/dubbo-go/v3/filter/adaptivesvc"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/auth"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/echo"
 	_ "dubbo.apache.org/dubbo-go/v3/filter/exec_limit"

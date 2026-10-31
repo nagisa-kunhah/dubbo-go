@@ -376,7 +376,7 @@ func (svcOpts *ServiceOptions) getUrlMap() url.Values {
 	}
 	filters = extension.MergeFilterNames(filters, svcOpts.srvOpts.extensionFilterNames)
 	if svcOpts.adaptiveService {
-		filters += fmt.Sprintf(",%s", constant.AdaptiveServiceProviderFilterKey)
+		filters = extension.MergeFilterNames(filters, []string{constant.AdaptiveServiceProviderFilterKey})
 	}
 	if metrics.Enable != nil && *metrics.Enable {
 		filters += fmt.Sprintf(",%s", constant.MetricsFilterKey)

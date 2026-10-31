@@ -7,13 +7,14 @@ require (
 	github.com/Workiva/go-datastructures v1.0.52
 	github.com/alibaba/sentinel-golang v1.0.4
 	github.com/apache/dubbo-getty v1.4.10
+	github.com/apache/dubbo-go-extensions v0.0.0-20260929024403-fd83ff1282fa
 	github.com/apache/dubbo-go-hessian2 v1.13.2
 	github.com/apolloconfig/agollo/v4 v4.4.0
 	github.com/cenkalti/backoff/v4 v4.2.1
 	github.com/creasty/defaults v1.5.2
 	github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 	github.com/dop251/goja_nodejs v0.0.0-20211022123610-8dd9abb0616d
-	github.com/dubbogo/gost v1.14.5
+	github.com/dubbogo/gost v1.15.0
 	github.com/dubbogo/grpc-go v1.42.10
 	github.com/dubbogo/triple v1.2.2-rc4
 	github.com/dustin/go-humanize v1.0.1
@@ -44,7 +45,7 @@ require (
 	github.com/quic-go/quic-go v0.59.1
 	github.com/shirou/gopsutil/v3 v3.22.2
 	github.com/sirupsen/logrus v1.10.1
-	github.com/stretchr/testify v1.12.0
+	github.com/stretchr/testify v1.12.1
 	github.com/ugorji/go/codec v1.2.6
 	go.etcd.io/etcd/api/v3 v3.5.7
 	go.etcd.io/etcd/client/v3 v3.5.7
@@ -58,7 +59,7 @@ require (
 	go.opentelemetry.io/otel/exporters/zipkin v1.21.0
 	go.opentelemetry.io/otel/sdk v1.45.0
 	go.opentelemetry.io/otel/trace v1.45.0
-	go.uber.org/atomic v1.10.0
+	go.uber.org/atomic v1.12.0
 	go.uber.org/mock v0.6.0
 	go.uber.org/zap v1.28.0
 	go.yaml.in/yaml/v4 v4.0.0-rc.6
@@ -135,6 +136,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.45.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.11.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/crypto v0.55.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
 	golang.org/x/text v0.41.0 // indirect
@@ -146,3 +148,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/apache/dubbo-go-extensions => ../dubbo-go-extensions

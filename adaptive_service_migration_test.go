@@ -15,30 +15,31 @@
  * limitations under the License.
  */
 
-package limiter
+package dubbo
 
 import (
 	"testing"
-	"time"
 )
 
 import (
-	"github.com/stretchr/testify/assert"
+	"github.com/apache/dubbo-go-extensions/filter/adaptivesvc/limiter"
+
+	"github.com/stretchr/testify/require"
 )
 
-func TestMinDuration(t *testing.T) {
-	// Test when lhs is smaller than rhs
-	dur1 := 2 * time.Second
-	dur2 := 3 * time.Second
-	result := minDuration(dur1, dur2)
-	assert.Equal(t, dur1, result)
+func TestAdaptiveServiceLegacyProviderConfiguration(t *testing.T) {
+	previous := limiter.VerboseEnabled()
+	t.Cleanup(func() { limiter.SetVerbose(previous) })
+	options := defaultInstanceOptions()
+	options.Provider.AdaptiveService = true
+	options.Provider.AdaptiveServiceVerbose = true
 
-	// Test when rhs is smaller than lhs
-	result = minDuration(dur2, dur1)
-	assert.Equal(t, dur1, result)
+	limiter.SetVerbose(false)
+	require.NoError(t, options.initGlobalProvider(false))
+	require.False(t, limiter.VerboseEnabled(), "validation must not activate the process-global setting")
+	require.NoError(t, options.initGlobalProvider(true))
+	require.True(t, limiter.VerboseEnabled())
 
-	// Test when both durations are equal
-	dur3 := 2 * time.Second
-	result = minDuration(dur3, dur3)
-	assert.Equal(t, dur3, result)
+	options.Provider.AdaptiveService = false
+	require.Error(t, options.initGlobalProvider(true))
 }

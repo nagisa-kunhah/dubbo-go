@@ -27,6 +27,8 @@ import (
 )
 
 import (
+	aslimiter "github.com/apache/dubbo-go-extensions/filter/adaptivesvc/limiter"
+
 	"github.com/creasty/defaults"
 
 	"github.com/dubbogo/gost/log/logger"
@@ -38,7 +40,6 @@ import (
 	"dubbo.apache.org/dubbo-go/v3/common/constant"
 	"dubbo.apache.org/dubbo-go/v3/common/dubboutil"
 	"dubbo.apache.org/dubbo-go/v3/common/extension"
-	aslimiter "dubbo.apache.org/dubbo-go/v3/filter/adaptivesvc/limiter"
 	"dubbo.apache.org/dubbo-go/v3/global"
 	"dubbo.apache.org/dubbo-go/v3/graceful_shutdown"
 	"dubbo.apache.org/dubbo-go/v3/internal"
@@ -114,7 +115,7 @@ func (srvOpts *ServerOptions) init(opts ...ServerOption) error {
 		}
 		logger.Info("[Server] adaptive service verbose is enabled")
 		logger.Debug("[Server] debug-level info could be shown")
-		aslimiter.Verbose = true
+		aslimiter.SetVerbose(true)
 	}
 
 	// init graceful_shutdown
@@ -708,6 +709,7 @@ func (svcOpts *ServiceOptions) init(srv *Server, opts ...ServiceOption) error {
 	}
 
 	svcOpts.srvOpts = srv.cfg
+	svcOpts.adaptiveService = svcOpts.Provider.AdaptiveService
 	svc := svcOpts.Service
 
 	dubboutil.CopyFields(reflect.ValueOf(srv.cfg.Provider).Elem(), reflect.ValueOf(svc).Elem())
